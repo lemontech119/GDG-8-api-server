@@ -1,10 +1,12 @@
 import { NextFunction, Request, Response } from "express";
 // import FileService from "@services/file.service";
 import CatModel from "@models/cat.model";
+import CatService from "@services/cat.service";
 
 class CatController {
   // public fileService = new FileService();
   public catModel = new CatModel();
+  public CatService = new CatService();
 
   public index = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
@@ -15,7 +17,19 @@ class CatController {
     }
   };
 
+  public indexDto = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      // const cats = await this.catModel.getCats();
+      const cats = await this.CatService.findCatInfo();
+      res.json({cats});
+    } catch (error) {
+      next(error);
+    }
+  };
+
+ 
   public get = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+
     try {
       const id = req.params.id;
       const cat = await this.catModel.getCatById(parseInt(id, 10));
@@ -40,6 +54,5 @@ class CatController {
   //     next(error);
   //   }
   // }
-}
 
 export default CatController;

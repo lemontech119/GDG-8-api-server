@@ -39,6 +39,7 @@ class FeedController {
   public create = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
       const { feed } = req.body;
+
       await this.feedModel.createFeed(feed);
       res.send('true');
     } catch (e) {

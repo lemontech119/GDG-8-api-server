@@ -1,19 +1,19 @@
 import { Entity, PrimaryGeneratedColumn, Column, Unique, CreateDateColumn, UpdateDateColumn, Index } from 'typeorm';
 
-@Entity("feed")
-export class FeedEntity {
+@Entity("comment")
+export class CommentEntity {
   @PrimaryGeneratedColumn()
   id: number;
 
   @Index()
   @Column()
-  cat_id: number;
+  feed_id: number;
 
   @Column()
-  title: string;
+  userName: string;
 
   @Column()
-  content: string;
+  comment: string;
 
   @Column()
   @CreateDateColumn()

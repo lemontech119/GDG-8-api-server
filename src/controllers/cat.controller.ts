@@ -1,12 +1,15 @@
 import { NextFunction, Request, Response } from "express";
 import FileService from "@services/file.service";
+import CatModel from "@models/cat.model";
 
 class CatController {
   public fileService = new FileService();
+  public catModel = new CatModel();
 
-  public index = (req: Request, res: Response, next: NextFunction): void => {
+  public index = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     try {
-      res.status(200).json({data: "", message: "cat Test"});
+      const cats = await this.catModel.getCats();
+      res.json({cats});
     } catch (error) {
       next(error);
     }

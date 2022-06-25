@@ -18,7 +18,7 @@ class IndexRoutes implements Routes {
     // model test
     // this.router.get(`${this.path}:id(\\d+)`, this.indexController.dbGetTest);
     // this.router.post(`${this.path}`, this.indexController.createTest);
-    this.router.use(`${this.path}/cat`, this.catRoutes.router);
+    // this.router.use(`${this.path}/cat`, this.catRoutes.router);
   }
 }
 

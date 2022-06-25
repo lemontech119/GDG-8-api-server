@@ -18,6 +18,13 @@ class CatModel {
       select: ["id", "image_url"],
     })
   }
+
+  public async getCatById(id: number): Promise<CatEntity> {
+    const catRepository = getRepository(this.cat);
+    return await catRepository.findOne({
+      id,
+    });
+  }
 }
 
 export default CatModel;

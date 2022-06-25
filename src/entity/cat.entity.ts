@@ -9,10 +9,10 @@ export class CatEntity {
   name: string;
 
   @Column()
-  loc_x: number;
+  loc_x: string;
 
   @Column()
-  loc_y: number;
+  loc_y: string;
 
   @Column()
   image_url: string;

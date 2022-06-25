@@ -6,6 +6,6 @@
     "src",
     "package-lock.json"
   ],
-  "exec": "babel-node --extensions '.ts' src/server.ts",
+  "exec": "babel-node --extensions --max-old-space-size=12000 '.ts' src/server.ts",
   "ext": "ts"
 }

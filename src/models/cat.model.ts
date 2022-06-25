@@ -1,5 +1,6 @@
 import { getRepository, In } from "typeorm";
 import { CatEntity } from "@entity/cat.entity";
+import { CreateCatDto } from "@dtos/cat.dto";
 
 class CatModel {
   public cat = CatEntity;
@@ -24,6 +25,17 @@ class CatModel {
     return await catRepository.findOne({
       id,
     });
+  }
+
+  public async create(createCat: CreateCatDto): Promise<void> {
+    const catRepository = getRepository(this.cat);
+    await catRepository.save({
+      name: createCat.name,
+      loc_x: createCat.loc_x,
+      loc_y: createCat.loc_y,
+      description: createCat.description,
+      image_url: createCat.image_url,
+    })
   }
 }
 

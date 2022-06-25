@@ -8,6 +8,7 @@ class FeedModel {
 
   public async createFeed(feed: CreateFeedDto): Promise<void> {
     const feedRepository = getRepository(this.feedEntity);
+
     await feedRepository.save({...feed});
   }
 
@@ -21,7 +22,7 @@ class FeedModel {
   public async getLatestedFeedList(): Promise<GetFeedList[]> {
     const feedRepository = getRepository(this.feedEntity);
     const ret = await feedRepository.find({
-      select: ["id", "cat_id", "title"],
+      select: ["id", "cat_id", "title", "content"],
       order: {
         createdAt: "DESC",
       },
@@ -34,7 +35,7 @@ class FeedModel {
   public async getFeedListByCatId(cat_id: number): Promise<GetFeedList[]> {
     const feedRepository = getRepository(this.feedEntity);
     const ret = await feedRepository.find({
-      select: ["id", "cat_id", "title"],
+      select: ["id", "cat_id", "title", "content"],
       where: {
         cat_id,
       },
@@ -46,6 +47,7 @@ class FeedModel {
 
     return ret;
   }
+
 }
 
 export default FeedModel;

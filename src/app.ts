@@ -1,6 +1,5 @@
 import 'reflect-metadata';
 import cookieParser from 'cookie-parser';
-import cors from 'cors';
 import express from 'express';
 import helmet from 'helmet';
 import bodyParser from 'body-parser';

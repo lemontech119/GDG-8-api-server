@@ -8,6 +8,13 @@ class CatModel {
     const catRepository = getRepository(this.cat);
     return await catRepository.find();
   }
+
+  public async getCatById(id: number): Promise<CatEntity> {
+    const catRepository = getRepository(this.cat);
+    return await catRepository.findOne({
+      id,
+    });
+  }
 }
 
 export default CatModel;

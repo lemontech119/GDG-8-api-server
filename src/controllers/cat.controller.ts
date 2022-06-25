@@ -15,6 +15,16 @@ class CatController {
     }
   };
 
+  public get = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+    try {
+      const id = req.params.id;
+      const cat = await this.catModel.getCatById(parseInt(id, 10));
+      res.json({ cat });
+    } catch (error) {
+      next(error);
+    }
+  };
+  
   // public testUploadImage = async (
   //   req: Request, res: Response, next: NextFunction
   // ) => {

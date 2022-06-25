@@ -48,7 +48,7 @@ class CatController {
       }
       const fileData: Express.Multer.File = req.file;
       const cat = req.body;
-      const image_url = "http://3.34.197.35:3000/" + fileData.originalname;
+      const image_url = "http://13.125.252.148:3000/" + fileData.originalname;
 
       cat["image_url"] = image_url;
       await this.catModel.create(cat);

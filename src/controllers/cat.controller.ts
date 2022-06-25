@@ -39,20 +39,23 @@ class CatController {
     }
   };
   
-  // public testUploadImage = async (
-  //   req: Request, res: Response, next: NextFunction
-  // ) => {
-  //   try {
-  //     if (!req.file) {
-  //       return res.status(400).json({});
-  //     }
-  //     const fileData: Express.Multer.File = req.file;
+  public testUploadImage = async (
+    req: Request, res: Response, next: NextFunction
+  ) => {
+    try {
+      if (!req.file) {
+        return res.status(400).json({});
+      }
+      const fileData: Express.Multer.File = req.file;
+      const cat = req.body;
+      const image_url = "http://3.34.197.35:3000/" + fileData.originalname;
 
-  //     await this.fileService.uploadFileToS3(fileData);
-  //     res.json({});
-  //   } catch (error) {
-  //     next(error);
-  //   }
-  // }
+      cat["image_url"] = image_url;
+      await this.catModel.create(cat);
+      res.send('true');
+    } catch (error) {
+      next(error);
+    }
+  }
 }
 export default CatController;

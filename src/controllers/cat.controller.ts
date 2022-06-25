@@ -54,5 +54,5 @@ class CatController {
   //     next(error);
   //   }
   // }
-
+}
 export default CatController;

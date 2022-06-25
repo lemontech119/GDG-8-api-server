@@ -18,9 +18,9 @@ class CatRoutes {
 
     this.router.get(`${this.path}/path`, this.catController.indexDto);
 
-    this.router.post(`${this.path}/test`, this.upload.single('image'), 
-      this.catController.testUploadImage
-    );
+    // this.router.post(`${this.path}/test`, this.upload.single('image'), 
+    //   this.catController.testUploadImage
+    // );
     this.router.get(`${this.path}/:id(\\d+)`, this.catController.get);
     // this.router.post(`${this.path}/test`, this.upload.single('image'), 
     //   this.catController.testUploadImage

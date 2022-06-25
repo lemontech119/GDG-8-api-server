@@ -9,7 +9,7 @@ class CatService
     public catModel = new CatModel();
     public feedModel = new FeedModel();
 
-    public async findCatInfo(): Promise<FeedDto> {
+    public async findCatInfo() {
 
         const cats = await this.catModel.getCats();
         const feeds = await this.feedModel.getLatestedFeedList();
@@ -31,10 +31,11 @@ class CatService
                     return true;
             });
             result['image_url'] = re.image_url;
+
             return result;
         })
 
-        return new FeedDto();
+        return res;
     }
 
 /*

@@ -37,6 +37,7 @@ class App {
 
   private initializeMiddlewares() {
     // this.app.use(helmet());
+    this.app.use(express.static('uploads'));
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));

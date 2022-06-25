@@ -4,7 +4,7 @@ import { multerConfig } from "../config/multerConfig";
 import multer from "multer";
 
 class CatRoutes {
-  public path = "/cat";
+  public path = "/cats";
   public router = Router();
   public catController = new CatController();
   public upload = multer(multerConfig);

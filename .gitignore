@@ -13,3 +13,4 @@ dist
 
 # typrorm config
 ormconfig.json
+uploads

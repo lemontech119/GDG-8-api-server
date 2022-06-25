@@ -1,7 +1,6 @@
 import 'reflect-metadata';
 import cookieParser from 'cookie-parser';
 import express from 'express';
-import helmet from 'helmet';
 import bodyParser from 'body-parser';
 import compression from 'compression';
 import { connectDB } from "@databases";
@@ -37,7 +36,7 @@ class App {
   }
 
   private initializeMiddlewares() {
-    this.app.use(helmet());
+    // this.app.use(helmet());
     this.app.use(compression());
     this.app.use(express.json());
     this.app.use(bodyParser.urlencoded({ extended: true }));
